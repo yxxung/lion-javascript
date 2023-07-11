@@ -205,7 +205,6 @@ let [, , green] = color;
 for (const [key, value] of Object.entries(authUser)) {
   // let key = keyValue[0];
   // let value = keyValue[1];
-
   // console.log(key);
 }
 
@@ -217,6 +216,27 @@ const salaries = {
   김태일: 700,
 };
 
-const {권혜미, 이수연, 강예나, 김태일} = salaries;
+const { 권혜미, 이수연, 강예나, 김태일 } = salaries;
 
-console.log(권혜미);
+// console.log(권혜미);
+
+// 배열의 구조분해할당 : 순서가 정해져있다. 변수 이름을 바꿀 수 있다.
+// 객체의 구조분해할당 : 순서가 정해져있지 않다. 변수의 이름을 바꿀수 있을까? yes
+// 아래와 같이 이름을 지정해주어 사용할 수 있다(별칭처럼)
+// 기본값 지정도 가능하다
+
+function setElementCss(options) {
+  // 구조 분해 할당
+  const { width: w = 10, height, overflow, color } = options;
+
+  console.log(w, height);
+}
+
+const defaults = {
+  width: 100,
+  height: 200,
+  overflow: false,
+  color: 'orange',
+};
+// 일일히 매개변수로 전달하기 귀찮으니까 객체로 전달
+setElementCss(defaults);

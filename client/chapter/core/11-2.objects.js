@@ -11,10 +11,13 @@ let messenger = {
   manufacture: 'kakao'
 };
 
+// 복사의 종류 - 참조복사 or 얕은복사 or 깊은복사
 let text = message;
+// 참조 복사
 let conversationTool = messenger;
 
 // 객체를 참조에 의한 복사를 하게 되면 원본도 변경이 되어벌임..
+// 그렇다고 참조에 의한 복사 === 얕은 복사인 것은 아님
 conversationTool.name = 'line';
 
 // 비교 (복사 vs. 참조)

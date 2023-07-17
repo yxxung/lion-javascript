@@ -16,10 +16,10 @@
 // 문자에 바로 메서드를 정의할 수 있는 이유는?
 // primitive methods(Object wrapper) => 원시 랩퍼 객체가 실제로 문자를 객체로 만들어줌
 let friends = '진승, 혜미, 송이, 효윤, 선용, 승민, 상호, 영은'.split(',')
-console.log(friends);
+// console.log(friends);
 
 // 배열 요소의 총 갯수
-console.log(friends.length);
+// console.log(friends.length);
 
 // 배열 요소 변경
 friends[0] = "선범"
@@ -44,9 +44,23 @@ let pop = friends.pop(); // 뒤 요소 제거
 // 배열 요소 순환(loop)
 // for 문, for ~ of문
 
+for (let i = 0; i < friends.length; i++) {
+  // console.log(friends[i]);
+}
+
+// for...of
+// 컬렉션 객체가 [Symbol.iterator] 속성을 가지고 있어야만 합니다(직접 명시 가능).
+for (const value of friends) {
+  // console.log(value);
+}
+
 
 // 배열 복사
-let copiedArray;
+// let copiedArray = [...friends];
+
+// 값을 입력하지 않으면 복사의 기능이 있음
+let copiedArray = friends.slice();
+console.log(copiedArray);
 
 
 // 다차원 배열

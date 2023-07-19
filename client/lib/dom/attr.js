@@ -2,8 +2,6 @@
 function getAttr(node, attr) {
   if(typeof node === 'string'){
     node = getNode(node);
-  } else {
-    throw new Error('함수의 인수는 문자 타입 이어야 합니다.');
   }
 
   return node.getAttribute(attr);
@@ -42,7 +40,7 @@ function attr(node, attr, value) {
   // }else {
   //   setAttr(node, attr, value);
   // }
-  return !value ? getAttr(node,prop) : setAttr(node,prop,value);
+  return !value ? getAttr(node, attr) : setAttr(node, attr, value);
 }
 
 

@@ -4,7 +4,7 @@
 
 /* 클래스를 사용한 위임 ---------------- */
 // 이벤트가 너무 많으면 성능 저하 및 유지보수가 힘들다.
-// 자식들 각각에 이벤트를 주기보단, 부에게 이벤트를 걸자.
+// 자식들 각각에 이벤트를 주기보단, 부모에게 이벤트를 걸자.
 
 // const buttonA = getNode('.a')
 // const buttonB = getNode('.b')
@@ -47,3 +47,43 @@ container.addEventListener('click', handleDelegation);
 /* 속성을 사용한 위임 ------------------ */
 
 /* 노드를 사용한 위임 ------------------ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// 타겟을 잡고 이벤트를 정의하고 싶어..
+target.addEventListener('click',handler) // 이벤트 생성
+target.removeEventListener('click',handler) // 이벤트 제거
+
+// 근데 제거는 왜 해?
+// 만약 화면 변화 시 더이상 필요없는 요소의 이벤트는 더 이상 이벤트를 유지시킬 필요가 없다.
+// 따라서, 필요 없는 이벤트의 경우 이벤트를 삭제해준다.
+
+function bindEvent(node, type, callback) {
+  node.addEventListener(type, callback);
+
+  // closure
+  return function remove() {
+    return node.removeEventListener(type, callback) // 값 => 리턴 받아서 쓰기 위해 내부 스코프에도 return
+  }
+
+}
+
+// remove에 담겨져 있는 함수는 node.removeEventListener(type, callback)
+const remove = bindEvent('.first', 'click', ()=> {
+
+})

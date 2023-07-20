@@ -15,7 +15,8 @@ const article = getNode('article');
 const p = getNode('p');
 
 
-section.addEventListener('click',()=>{
+section.addEventListener('click',(e)=>{
+  // e.stopPropagation();
   console.log('%c section','color:orange');
 }, true)
 
